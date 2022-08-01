@@ -1,4 +1,4 @@
-import { WaveGroup } from "./WaveGroup";
+import { WaveGroup } from "./WaveGroup.ts";
 
 class App {
   constructor() {
@@ -6,7 +6,7 @@ class App {
     this.ctx = this.canvas.getContext("2d");
     document.body.appendChild(this.canvas);
 
-    this.waveGroup = new WaveGroup();
+    this.waveGroup = WaveGroup();
 
     window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
