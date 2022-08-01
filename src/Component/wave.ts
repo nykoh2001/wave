@@ -1,4 +1,4 @@
-import { Point } from "./point.js";
+import { Point } from "./point.ts";
 
 class waveStateClass {
   index: number;
@@ -40,9 +40,8 @@ export const Wave = (
   };
 
   const init = () => {
-    const point = new Point(waveState.centerX, waveState.centerY);
     for (let i = 0; i < waveState.totalPoints; i++) {
-      const point = new Point(
+      const point = Point(
         waveState.index + i,
         waveState.pointGap * i,
         waveState.centerY
