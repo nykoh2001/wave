@@ -1,12 +1,29 @@
-import { Wave } from "./wave.ts";
+import React from "react";
+import { Wave, Point } from "./wave";
 
-class waveGroupClass {
-  totalWaves: number;
+export interface Wave {
+  index: number;
+  color: string;
+  points: Point[];
+  stageWidth: number;
+  stageHeight: number;
+  centerX: number;
+  centerY: number;
+  pointGap: number;
+  prevX: number;
+  prevY: number;
   totalPoints: number;
-  color: string[] = [];
-  waves: Wave[] = [];
   resize: Function;
   draw: Function;
+}
+
+class waveGroupClass {
+  totalWaves: number = 0;
+  totalPoints: number = 0;
+  color: string[] = [];
+  waves: Wave[] = [];
+  resize: Function = function () {};
+  draw: Function = function () {};
 }
 
 export const WaveGroup = () => {
@@ -31,7 +48,7 @@ export const WaveGroup = () => {
     }
   };
 
-  waveGroupState.draw = (ctx) => {
+  waveGroupState.draw = (ctx: any) => {
     for (let i = 0; i < waveGroupState.totalWaves; i++) {
       waveGroupState.waves[i].draw(ctx);
     }

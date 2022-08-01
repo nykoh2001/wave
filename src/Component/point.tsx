@@ -1,15 +1,15 @@
 class PointClass {
-  index: number;
-  x: number;
-  y: number;
-  fixedY: number;
-  speed: number;
-  cur: number;
-  max: number;
-  update: Function;
+  index: number = 0;
+  x: number = 0;
+  y: number = 0;
+  fixedY: number = 0;
+  speed: number = 0;
+  cur: number = 0;
+  max: number = 0;
+  update: Function = () => {};
 }
 
-export const Point = (index: number, x: number, y: number) => {
+const Point = (index: number, x: number, y: number) => {
   const PointState = new PointClass();
   PointState.x = x;
   PointState.y = y;
@@ -26,3 +26,5 @@ export const Point = (index: number, x: number, y: number) => {
 
   return PointState;
 };
+
+export default Point;

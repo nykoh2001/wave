@@ -1,11 +1,21 @@
-import { WaveGroup } from "./WaveGroup.ts";
+import React from "react";
+import { WaveGroup, Wave } from "./WaveGroup";
+
+interface WaveGroup {
+  totalWaves: number;
+  totalPoints: number;
+  color: string[];
+  waves: Wave[];
+  resize: Function;
+  draw: Function;
+}
 
 class App {
   canvas: any;
   ctx: any;
   waveGroup: WaveGroup;
-  stageWidth: number;
-  stageHeight: number;
+  stageWidth: number = 0;
+  stageHeight: number = 0;
 
   constructor() {
     this.canvas = document.createElement("canvas");

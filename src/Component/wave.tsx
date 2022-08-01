@@ -1,19 +1,31 @@
-import { Point } from "./point.ts";
+import React from "react";
+import Point from "./point";
+
+export interface Point {
+  index: number;
+  x: number;
+  y: number;
+  fixedY: number;
+  speed: number;
+  cur: number;
+  max: number;
+  update: Function;
+}
 
 class waveStateClass {
-  index: number;
-  color: string;
+  index: number = 0;
+  color: string = "";
   points: Point[] = [];
-  stageWidth: number;
-  stageHeight: number;
-  centerX: number;
-  centerY: number;
-  pointGap: number;
-  prevX: number;
-  prevY: number;
-  totalPoints: number;
-  resize: Function;
-  draw: Function;
+  stageWidth: number = 0;
+  stageHeight: number = 0;
+  centerX: number = 0;
+  centerY: number = 0;
+  pointGap: number = 0;
+  prevX: number = 0;
+  prevY: number = 0;
+  totalPoints: number = 0;
+  resize: Function = function () {};
+  draw: Function = function () {};
 }
 
 export const Wave = (
@@ -50,7 +62,7 @@ export const Wave = (
     }
   };
 
-  waveState.draw = (ctx) => {
+  waveState.draw = (ctx: any) => {
     ctx.beginPath();
     ctx.fillStyle = waveState.color;
 
